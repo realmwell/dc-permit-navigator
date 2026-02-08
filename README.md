@@ -125,22 +125,34 @@ sam deploy           # subsequent deploys
 ## Development
 
 ```
-dc-permit-rag/
+dc-permit-navigator/
 ├── data/
-│   └── permits.json          # Curated permit database (103 permits)
+│   └── permits.json              # Curated permit database (103 permits)
 ├── lambda/
-│   └── handler.py            # RAG query Lambda
+│   ├── handler.py                # RAG query Lambda
+│   └── requirements.txt          # Lambda dependencies
 ├── scripts/
-│   ├── build_index.py        # FAISS index builder
-│   └── upload-site.sh        # S3 frontend sync
+│   ├── build_index.py            # Vector index builder (Bedrock Titan v2)
+│   ├── generate_site_data.py     # Generate JS from permits.json
+│   └── upload-site.sh            # S3 frontend sync + CloudFront invalidation
 ├── site/
-│   ├── index.html            # Chat UI
-│   ├── css/
+│   ├── index.html                # Chat UI + permit directory + about page
+│   ├── css/style.css             # Styles
 │   └── js/
-├── template.yaml             # SAM/CloudFormation
-├── ARCHITECTURE.md           # Detailed architecture doc
-└── README.md                 # This file
+│       ├── app.js                # Frontend controller
+│       └── permits-data.js       # Auto-generated permit data (do not edit)
+├── template.yaml                 # SAM/CloudFormation (all AWS resources)
+├── ARCHITECTURE.md               # Detailed architecture doc
+├── blog-post.md                  # Substack blog post draft
+└── README.md                     # This file
 ```
+
+### Updating the permit database
+
+1. Edit `data/permits.json`
+2. Run `python scripts/generate_site_data.py` to regenerate the frontend data
+3. Run `python scripts/build_index.py` to rebuild the vector index
+4. Deploy with `sam deploy` and `./scripts/upload-site.sh`
 
 ## Contributing
 

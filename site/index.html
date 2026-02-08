@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DC Permit Navigator</title>
+    <meta name="description" content="AI-powered guide to Washington DC's 103+ permits, licenses, and certifications across 16 government agencies.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>DC Permit Navigator</h1>
+            <p class="subtitle">Ask questions about DC's 103+ permits across 16 agencies</p>
+            <nav>
+                <a href="#chat" class="nav-link active" data-tab="chat">Ask a Question</a>
+                <a href="#directory" class="nav-link" data-tab="directory">Full Permit Directory</a>
+                <a href="#about" class="nav-link" data-tab="about">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Chat Tab -->
+        <section id="chat" class="tab-content active">
+            <div class="chat-container">
+                <div id="chat-messages" class="chat-messages">
+                    <div class="message bot">
+                        <div class="message-content">
+                            <p>Hi! I'm the DC Permit Navigator. I can help you figure out which permits, licenses, or certifications you need from DC government agencies.</p>
+                            <p>Try asking something like:</p>
+                            <ul>
+                                <li>"What do I need to open a restaurant?"</li>
+                                <li>"How do I get a building permit for a home renovation?"</li>
+                                <li>"I want to host a block party on my street"</li>
+                                <li>"What permits does a food truck need?"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <form id="chat-form">
+                        <input
+                            type="text"
+                            id="chat-input"
+                            placeholder="What permit do you need?"
+                            maxlength="500"
+                            autocomplete="off"
+                        >
+                        <button type="submit" id="send-btn">
+                            <span class="send-text">Ask</span>
+                            <span class="send-loading" style="display:none;">...</span>
+                        </button>
+                    </form>
+                    <p class="disclaimer">Always verify with the issuing agency. This tool provides general guidance only.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Directory Tab -->
+        <section id="directory" class="tab-content">
+            <div class="directory-container">
+                <div class="directory-header">
+                    <h2>All DC Permits, Licenses & Certifications</h2>
+                    <p>A comprehensive directory of <strong id="permit-count">103</strong> permits across <strong>16</strong> DC government agencies. Click any permit for full details.</p>
+                    <div class="directory-controls">
+                        <input type="text" id="search-input" placeholder="Search permits..." class="search-box">
+                        <select id="category-filter" class="filter-select">
+                            <option value="all">All Categories</option>
+                        </select>
+                        <select id="agency-filter" class="filter-select">
+                            <option value="all">All Agencies</option>
+                        </select>
+                    </div>
+                    <p class="result-count" id="result-count"></p>
+                </div>
+                <div id="permit-list" class="permit-list">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Tab -->
+        <section id="about" class="tab-content">
+            <div class="about-container">
+                <h2>About This Project</h2>
+                <p>Washington DC has <strong>103+ different permits</strong> spread across <strong>16 different agencies</strong>, each with its own application portal, fee structure, and process. There is no single place to find them all.</p>
+
+                <p>A restaurant owner might need to navigate DOB, DC Health, ABCA, DDOT, FEMS, and DLCP — all separately, with no one telling them the full list up front. A homeowner wanting to renovate might discover mid-project that they need historic preservation review, an erosion control plan, and a public space permit they never knew existed.</p>
+
+                <p>This project is a proof of concept: an AI chatbot backed by a hand-curated database of every DC permit we could find. It's designed to answer the question <em>"what do I need?"</em> and point you to the right agency.</p>
+
+                <h3>How It Works</h3>
+                <p>When you ask a question, your query is matched against our permit database using semantic search (vector embeddings). The most relevant permits are retrieved and used as context for an AI model (Claude) to generate a natural language answer with specific permits, agencies, fees, and application links.</p>
+
+                <h3>What It Costs</h3>
+                <p>The entire stack runs on serverless AWS infrastructure for under $5/month. There's no database, no always-on servers, and no API Gateway. When nobody's asking questions, it costs essentially nothing.</p>
+
+                <h3>Open Source</h3>
+                <p>The permit database and all source code are open source on <a href="https://github.com/realmwell/dc-permit-navigator" target="_blank">GitHub</a>. If you spot a missing permit or incorrect information, please open an issue or PR.</p>
+
+                <h3>Disclaimer</h3>
+                <p>This is an informational tool only. Always verify permit requirements directly with the issuing DC government agency. This project is not affiliated with or endorsed by the DC government.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Open source on <a href="https://github.com/realmwell/dc-permit-navigator" target="_blank">GitHub</a> · Data last updated: <span id="last-updated">2026-02-08</span></p>
+    </footer>
+
+    <script src="js/permits-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

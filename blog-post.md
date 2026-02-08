@@ -1,18 +1,16 @@
-# I Cataloged Every DC Permit I Could Find. Here's What I Learned.
+# I Cataloged Every DC Permit I Could Find. Here's What the Data Reveals.
 
 Washington DC has a permit for keeping pigeons.
 
 It also has a permit for keeping exotic animals, a separate permit for animal disease prevention, and a permit for animal hobbies — all from the same agency (DC Health), each requiring a separate application. And none of them are listed in the same place.
 
-This is the story of what happens when you try to build a comprehensive database of every permit, license, and certification that the DC government offers to the public. I found 103 of them across 16 agencies. I probably missed some. Nobody — including the DC government — seems to have a complete list.
+I set out to build a comprehensive database of every permit, license, and certification that the DC government offers to the public. I found 103 of them across 16 agencies. I probably missed some. Nobody — including the DC government — seems to have a complete list.
 
-## The Motivation
+So I built the [DC Permit Navigator](https://github.com/realmwell/dc-permit-navigator), a free, open-source chatbot backed by a hand-curated database of every DC permit I could find. You ask a question — "What do I need to open a restaurant?" — and it tells you every permit, from every agency, with fees, requirements, and application links. No login, no paywall, no ads.
 
-I believe that government should be making it faster and easier to grant permits. Every day a permit is delayed is a day a small business can't open its doors, a homeowner can't start their renovation, or a neighborhood can't throw a block party. The permitting system isn't just bureaucracy — it's the gateway between citizens and the things they want to do in their city.
+Here's what the data shows — and what it says about how DC treats the people who want to build things in this city.
 
-Before you can fix a system, you need to understand it. So I set out to catalog every DC permit I could find, and then built an AI chatbot to help people navigate them.
-
-## What I Found: 103 Permits, 16 Agencies, 16 Portals
+## 103 permits. 16 agencies. 16 portals.
 
 The first thing that hits you is the sheer fragmentation.
 
@@ -32,21 +30,23 @@ Want to open a restaurant in DC? Here's your permit shopping list:
 
 That's potentially 11+ permits from 7 different agencies, each with its own website, its own application portal, and its own timeline. Nobody hands you this list. You discover it one painful permit at a time.
 
-## Insight #1: The Agency Name Problem
+The permit database breaks down into 16 categories: Building & Construction (15 permits), Alcohol & Cannabis (13), Professional & Occupational Licenses (13), Public Space & Transportation (11), Parking & Driving (8), Environmental (8), Events & Entertainment (6), Food & Health (6), Animal Permits (5), Business Licenses (4), Vital Records (4), Fire & Safety (3), Historic Preservation (2), Zoning (2), Health Professions (1), and Firearms (1).
+
+## The agency name problem
 
 If you're new to DC permitting, good luck figuring out which agency to call.
 
-DCRA (Department of Consumer and Regulatory Affairs) was split into **DOB** (Department of Buildings) and **DLCP** (Department of Licensing and Consumer Protection). But many URLs still point to dcra.dc.gov. The old Permit Wizard lives at permitwizard.dcra.dc.gov. Some Google results reference DCRA pages that now redirect (or don't).
+DCRA (Department of Consumer and Regulatory Affairs) was split into **DOB** (Department of Buildings) and **DLCP** (Department of Licensing and Consumer Protection). But many URLs still point to dcra.dc.gov. The Permit Wizard lives at permitwizard.dcra.dc.gov. Google results reference DCRA pages that now redirect — or don't.
 
-ABRA (Alcoholic Beverage Regulation Administration) became **ABCA** (Alcoholic Beverage and Cannabis Administration) when cannabis licensing was added. DDOE became **DOEE**. The Office of Zoning is sometimes referenced as "DCOZ" and sometimes just "OZ."
+ABRA (Alcoholic Beverage Regulation Administration) became **ABCA** (Alcoholic Beverage and Cannabis Administration) when cannabis licensing was added to its portfolio. DDOE became **DOEE**. The Office of Zoning is sometimes referenced as DCOZ and sometimes just OZ.
 
-For a resident trying to find the right agency, this is genuinely confusing. Search for "DCRA building permit" and you'll find a mix of current DOB pages and outdated DCRA references.
+For a resident trying to find the right agency, this is genuinely confusing. Search for "DCRA building permit" today and you'll get a mix of current DOB pages and outdated DCRA references. The system assumes you already know the institutional history.
 
-## Insight #2: Processing Times Are a Black Box
+## Processing times are a black box
 
-Of the 103 permits I cataloged, the vast majority list processing time as "varies." A few notable exceptions:
+Of the 103 permits I cataloged, the vast majority list processing time as "varies." The exceptions stand out precisely because they're exceptions:
 
-- **Marriage License**: Same day (DC gets this right)
+- **Marriage License**: Same day. DC gets this right.
 - **Parade Permit**: Minimum 15 business days
 - **Asbestos Abatement**: Minimum 10 working days advance notification
 - **Driver's License**: Same day if you pass the test
@@ -54,9 +54,11 @@ Of the 103 permits I cataloged, the vast majority list processing time as "varie
 
 But for building permits? "Varies." Food service license? "Varies." Business license? "Varies." Zoning variance? "Several months."
 
-This lack of transparency makes it impossible for applicants to plan. A restaurant owner investing hundreds of thousands of dollars can't even get a ballpark estimate of when they'll be able to open.
+This lack of transparency makes it impossible for applicants to plan. A restaurant owner investing hundreds of thousands of dollars in a buildout can't even get a ballpark estimate of when they'll be able to open. A homeowner can't tell their contractor when to start work. An event organizer can't set a date.
 
-## Insight #3: The Fee Spectrum
+The contrast with marriage licenses is instructive. You walk into DC Superior Court, pay $35, and walk out married. Same day. If DC can process a legal contract that binds two people for life in an afternoon, why does a fence permit take weeks?
+
+## The fee spectrum
 
 Permit fees range from free to $8,000:
 
@@ -71,65 +73,64 @@ Permit fees range from free to $8,000:
 - **$280-$560**: Food service establishment license
 - **$8,000**: Medical cannabis retailer license application ($2,000 for social equity applicants)
 
-Many permits don't publish fees online at all, which means you can't even budget without calling the agency first.
+Many permits don't publish fees online at all. You can't even budget without calling the agency, assuming you can find the right phone number, during their office hours, which may or may not be listed on their website.
 
-## Insight #4: Digital Adoption Is Wildly Uneven
+## Digital adoption is wildly uneven
 
-DDOT's TOPS (Transportation Online Permitting System) has been running since 2012. DOB has the Permit Wizard and Citizen Access Portal. These are functional, if not beautiful.
+DDOT's TOPS (Transportation Online Permitting System) has been running since 2012. DOB has the Permit Wizard and Citizen Access Portal. These are functional, if not elegant.
 
-But then you have agencies where the "application process" is: download a PDF, print it, fill it out by hand, bring it to a specific office during specific hours (8:30am-4:15pm, closed Thursdays at some offices), and wait.
+Then you have agencies where the "application process" is: download a PDF, print it, fill it out by hand, bring it to a specific office during specific hours (8:30am-4:15pm, closed Thursdays at some locations), and wait.
 
-DC Health recently stopped accepting paper applications for food permits — a good step. But ABCA still accepts cannabis license applications by mail. The HPRB concept review process requires emailing a completed form to an agency email address.
+DC Health recently stopped accepting paper applications for food permits — a good step. But ABCA still accepts cannabis license applications by mail. The HPRB concept review process requires emailing a completed form to a generic agency email address. The vending license from DLCP requires an in-person appointment.
 
-There's no unified permitting portal. No single sign-on. No dashboard where you can see all your pending permits across agencies.
+There's no unified permitting portal. No single sign-on. No dashboard where you can see all your pending permits across agencies. Sixteen agencies, sixteen separate systems, sixteen sets of credentials.
 
-## Insight #5: The Permits You Didn't Know You Needed
+## The permits you didn't know you needed
 
 Some surprises from the database:
 
-- **Pigeon Coop Permit** (DC Health) — Yes, you need a permit to keep pigeons
-- **Tree Removal Permit** (DDOT Urban Forestry) — That tree between the sidewalk and the curb? You can't touch it without DDOT permission
-- **Retaining Wall Permit** (DOB) — Walls over 4 feet from footing to top need a building permit
-- **Pop-Up Permit** (DOB) — A streamlined 1-year C of O for temporarily occupying a vacant building
-- **Commercial Lifestyle License** (ABCA) — For drinking in the common areas of mixed-use developments
-- **Athlete Agent License** (DLCP) — Required if you represent athletes in DC
-- **Combat Sports License** (DLCP) — For fighters, promoters, and referees
+- **Pigeon Coop Permit** (DC Health) — Yes, you need a permit to keep pigeons.
+- **Tree Removal Permit** (DDOT Urban Forestry) — That tree between the sidewalk and the curb? You can't touch it without DDOT permission.
+- **Retaining Wall Permit** (DOB) — Walls over 4 feet from footing to top need a building permit.
+- **Pop-Up Permit** (DOB) — A streamlined 1-year Certificate of Occupancy for temporarily using a vacant building. One of the few permits that seems designed to reduce friction.
+- **Commercial Lifestyle License** (ABCA) — For drinking alcohol in the common areas of mixed-use developments. The kind of specific permit that could only exist in a city with The Wharf.
+- **Athlete Agent License** (DLCP) — Required if you represent athletes in DC.
+- **Combat Sports License** (DLCP) — Separate licenses for fighters, promoters, referees, and judges.
 
-## Building the Chatbot
+The system assumes you know what to ask for. Nobody tells you that your retaining wall needs a building permit until a neighbor calls DOB. Nobody mentions the erosion control plan until you're mid-demolition. The interconnections between permits — a single project touching DOB, DOEE, DDOT, and HPO simultaneously — are invisible unless you've done it before.
 
-I built an AI chatbot to make this database useful — because a 103-row JSON file isn't exactly user-friendly.
+## How I built it (for less than $5/month)
 
-The architecture is deliberately cheap. The entire stack costs under $1/month at low usage:
+The chatbot runs on a serverless AWS stack that mirrors what I used for the [DC Bus Delay Tracker](https://github.com/realmwell/dc-bus-delay-tracker): a single Lambda function, S3 for static hosting, CloudFront for CDN, and no database. The only new ingredient is Amazon Bedrock for the AI components.
 
-- **Frontend**: Static HTML on S3 + CloudFront (essentially free)
-- **API**: Lambda Function URL (free — no API Gateway)
-- **Vector search**: FAISS index loaded in Lambda memory ($0)
-- **Embeddings**: Amazon Bedrock Titan v2 (~$0.000004 per query)
-- **LLM**: Amazon Bedrock Claude Haiku (~$0.001 per query)
-- **Total per query**: About a tenth of a cent
+The permit database is embedded into a vector index at deploy time using Titan Embeddings v2, stored as a binary file in S3, and loaded into Lambda memory on cold start. At query time, your question gets embedded into the same vector space, matched against the most relevant permits via cosine similarity, and those permits are passed as context to Claude Haiku, which generates a natural language answer.
 
-The FAISS index is pre-built at deploy time from the permit database. At query time, the user's question is embedded, matched against the most relevant permits, and Claude Haiku generates a natural language answer with links and next steps.
+The key architectural choice was skipping API Gateway entirely. Lambda Function URLs are free, and for a proof of concept with a daily query cap, they work perfectly. I also skipped managed vector databases — Aurora Serverless v2 has a $43/month minimum, OpenSearch Serverless starts at $691/month. A 103-document index fits comfortably in Lambda's 512MB memory allocation.
 
-## What Should Change
+Total cost per query: about a tenth of a cent. At 50 queries per day — more than this proof of concept will likely see — the monthly bill comes to roughly $2.
 
-Building this database reinforced my conviction that DC's permitting system needs reform:
+I built it with [Claude Code](https://claude.ai/claude-code) as a pair programming partner. It handled everything from the SAM template to the FAISS index builder to the frontend chat interface. The permit database itself was the labor-intensive part — manually compiled from dc.gov and individual agency websites, cross-referenced and structured. That's the kind of work no AI can fully automate yet: navigating 16 different government portals, reconciling outdated URLs, and making judgment calls about what counts as a "permit."
 
-1. **One portal to rule them all** — There should be a single DC.gov permits portal where you can search, apply for, and track ALL permits across ALL agencies. The current approach of 16 separate systems is a tax on residents' time.
+## What should change
 
-2. **Publish processing times** — Every permit should have a published average processing time, updated monthly. "Varies" is not an answer.
+Building this database reinforced something I already believed: DC's permitting system needs structural reform. Five specific things:
 
-3. **Permit bundles** — Common activities (open a restaurant, renovate a home, host an event) should have curated bundles that tell you every permit you need from every agency, with a single timeline.
+**One portal.** There should be a single DC.gov permits page where you can search, apply for, and track every permit across every agency. The current approach of 16 separate systems is a tax on residents' time and a barrier to economic activity.
 
-4. **Publish fees online** — Every permit fee should be listed on the agency's website. Making people call or visit an office just to learn the cost is unacceptable in 2026.
+**Published processing times.** Every permit should have a published average processing time, updated monthly. "Varies" is not an answer. If marriage licenses can be same-day, processing time benchmarks can exist for everything else.
 
-5. **Name consistency** — Pick a name for the agency and use it everywhere. Redirect old URLs. Update Google results. Stop confusing people with DCRA/DOB/DLCP.
+**Permit bundles.** Common activities — open a restaurant, renovate a home, host a street event — should have curated bundles that tell you every permit you need from every agency, with a single combined timeline. The restaurant owner shouldn't have to discover permit #7 after permits 1-6 are already in process.
 
-## Try It
+**Published fees.** Every permit fee should be listed on the agency's website. Making people call or visit an office to learn the cost is unacceptable in 2026.
 
-The chatbot is live at [URL]. The full permit database and source code are open source on GitHub at [URL].
+**Name consistency.** Pick a name for the agency and use it everywhere. Redirect old URLs. Update search results. Stop confusing people with DCRA/DOB/DLCP.
+
+## Try it
+
+The navigator is live at [URL]. The full permit database — all 103 permits with agencies, fees, requirements, and application links — is browsable on the site without needing to use the chatbot. The source code and data are open on [GitHub](https://github.com/realmwell/dc-permit-navigator).
 
 If you know of a DC permit I missed, please open an issue. This database should be as complete as possible.
 
 ---
 
-*This project is not affiliated with or endorsed by the DC government. Always verify permit requirements directly with the issuing agency.*
+*Max Greenberg builds data tools in Washington, DC. The DC Permit Navigator is open source and free to use.*
