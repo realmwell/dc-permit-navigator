@@ -485,6 +485,12 @@ footer a {
     color: var(--primary-light);
 }
 
+.footer-sources {
+    font-size: 0.75rem;
+    margin-top: 0.4rem;
+    line-height: 1.7;
+}
+
 /* Loading animation */
 .typing-indicator {
     display: flex;
