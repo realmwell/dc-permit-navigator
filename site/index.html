@@ -15,13 +15,12 @@
             <nav>
                 <a href="#chat" class="nav-link active" data-tab="chat">Ask a Question</a>
                 <a href="#directory" class="nav-link" data-tab="directory">Full Permit Directory</a>
-                <a href="#about" class="nav-link" data-tab="about">About</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Chat Tab -->
+        <!-- Chat + About Tab -->
         <section id="chat" class="tab-content active">
             <div class="chat-container">
                 <div id="chat-messages" class="chat-messages">
@@ -55,6 +54,27 @@
                     <p class="disclaimer">Always verify with the issuing agency. This tool provides general guidance only.</p>
                 </div>
             </div>
+
+            <div class="about-container">
+                <h2>About This Project</h2>
+                <p>Washington DC has <strong>103+ different permits</strong> spread across <strong>16 different agencies</strong>, each with its own application portal, fee structure, and process. There is no single place to find them all.</p>
+
+                <p>A restaurant owner might need to navigate DOB, DC Health, ABCA, DDOT, FEMS, and DLCP — all separately, with no one telling them the full list up front. A homeowner wanting to renovate might discover mid-project that they need historic preservation review, an erosion control plan, and a public space permit they never knew existed.</p>
+
+                <p>This project is a proof of concept: an AI chatbot backed by a hand-curated database of every DC permit we could find. It's designed to answer the question <em>"what do I need?"</em> and point you to the right agency.</p>
+
+                <h3>How It Works</h3>
+                <p>When you ask a question, your query is matched against our permit database using semantic search (vector embeddings). The most relevant permits are retrieved and used as context for an AI model (Claude) to generate a natural language answer with specific permits, agencies, fees, and application links.</p>
+
+                <h3>What It Costs</h3>
+                <p>The entire stack runs on serverless AWS infrastructure for under $5/month. There's no database, no always-on servers, and no API Gateway. When nobody's asking questions, it costs essentially nothing.</p>
+
+                <h3>Open Source</h3>
+                <p>The permit database and all source code are open source on <a href="https://github.com/realmwell/dc-permit-navigator" target="_blank">GitHub</a>. If you spot a missing permit or incorrect information, please open an issue or PR.</p>
+
+                <h3>Disclaimer</h3>
+                <p>This is an informational tool only. Always verify permit requirements directly with the issuing DC government agency. This project is not affiliated with or endorsed by the DC government.</p>
+            </div>
         </section>
 
         <!-- Directory Tab -->
@@ -77,30 +97,6 @@
                 <div id="permit-list" class="permit-list">
                     <!-- Populated by JS -->
                 </div>
-            </div>
-        </section>
-
-        <!-- About Tab -->
-        <section id="about" class="tab-content">
-            <div class="about-container">
-                <h2>About This Project</h2>
-                <p>Washington DC has <strong>103+ different permits</strong> spread across <strong>16 different agencies</strong>, each with its own application portal, fee structure, and process. There is no single place to find them all.</p>
-
-                <p>A restaurant owner might need to navigate DOB, DC Health, ABCA, DDOT, FEMS, and DLCP — all separately, with no one telling them the full list up front. A homeowner wanting to renovate might discover mid-project that they need historic preservation review, an erosion control plan, and a public space permit they never knew existed.</p>
-
-                <p>This project is a proof of concept: an AI chatbot backed by a hand-curated database of every DC permit we could find. It's designed to answer the question <em>"what do I need?"</em> and point you to the right agency.</p>
-
-                <h3>How It Works</h3>
-                <p>When you ask a question, your query is matched against our permit database using semantic search (vector embeddings). The most relevant permits are retrieved and used as context for an AI model (Claude) to generate a natural language answer with specific permits, agencies, fees, and application links.</p>
-
-                <h3>What It Costs</h3>
-                <p>The entire stack runs on serverless AWS infrastructure for under $5/month. There's no database, no always-on servers, and no API Gateway. When nobody's asking questions, it costs essentially nothing.</p>
-
-                <h3>Open Source</h3>
-                <p>The permit database and all source code are open source on <a href="https://github.com/realmwell/dc-permit-navigator" target="_blank">GitHub</a>. If you spot a missing permit or incorrect information, please open an issue or PR.</p>
-
-                <h3>Disclaimer</h3>
-                <p>This is an informational tool only. Always verify permit requirements directly with the issuing DC government agency. This project is not affiliated with or endorsed by the DC government.</p>
             </div>
         </section>
     </main>

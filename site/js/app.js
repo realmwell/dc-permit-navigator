@@ -2,7 +2,7 @@
  * DC Permit Navigator - Frontend Controller
  *
  * Handles:
- * - Tab navigation (chat, directory, about)
+ * - Tab navigation (chat, directory)
  * - Chat interface (send questions, display answers)
  * - Permit directory (search, filter, expand/collapse cards)
  */
